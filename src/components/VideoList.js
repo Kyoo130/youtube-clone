@@ -1,18 +1,20 @@
 import React from 'react';
-import VideoItem from "./VideoItem";
+import {VideoItem} from "./index";
 import styled from "styled-components";
 
 const VideoList = (props) => {
   return (
-    <VideoUl>
+    <VideoCont>
       {props.videos.map(video => <VideoItem key={video.id} video={video}/>)}
-    </VideoUl>
+    </VideoCont>
   );
 };
 
 export default VideoList;
 
-const VideoUl = styled.ul`
+const VideoCont = styled.ul`
   display: flex;
   flex-wrap: wrap;
+  list-style: none;
+  padding-left: 0;
 `
