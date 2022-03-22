@@ -1,12 +1,18 @@
 import React from 'react';
 import VideoItem from "./VideoItem";
+import styled from "styled-components";
 
 const VideoList = (props) => {
   return (
-    <ul>
+    <VideoUl>
       {props.videos.map(video => <VideoItem key={video.id} video={video}/>)}
-    </ul>
+    </VideoUl>
   );
 };
 
 export default VideoList;
+
+const VideoUl = styled.ul`
+  display: flex;
+  flex-wrap: wrap;
+`
