@@ -1,14 +1,14 @@
-import React, {useRef} from 'react';
+import React, {memo, useRef} from 'react';
 import styled from "styled-components";
 
-const Header = ({onSearch}) => {
+const Header = memo(({onSearch}) => {
   const inputRef = useRef();
 
   const handelSearch = () => {
     const value = inputRef.current.value;
     onSearch(value);
   };
-  
+
   const onClick = () => {
 
   };
@@ -18,6 +18,7 @@ const Header = ({onSearch}) => {
       handelSearch();
     }
   };
+  console.log("Header render")
 
   return (
     <HeaderCont>
@@ -31,7 +32,7 @@ const Header = ({onSearch}) => {
       </BtnEl>
     </HeaderCont>
   );
-};
+})
 
 export default Header;
 

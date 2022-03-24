@@ -1,7 +1,7 @@
-import React from 'react';
+import React, {memo} from 'react';
 import styled from "styled-components";
 
-const VideoItem = ({video, display, onVideoClick}) => {
+const VideoItem = memo(({video, display, onVideoClick}) => {
   const {title, channelTitle, thumbnails} = video.snippet;
   const displayType = display === 'list' ? '100%' : '50%';
 
@@ -16,7 +16,7 @@ const VideoItem = ({video, display, onVideoClick}) => {
       </DivEl>
     </ListEl>
   );
-};
+})
 
 export default VideoItem;
 
