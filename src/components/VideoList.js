@@ -2,10 +2,10 @@ import React from 'react';
 import {VideoItem} from "./index";
 import styled from "styled-components";
 
-const VideoList = (props) => {
+const VideoList = ({videos, onVideoClick, display}) => {
   return (
     <VideoCont>
-      {props.videos.map(video => <VideoItem key={video.id} video={video}/>)}
+      {videos.map(video => <VideoItem key={video.id} video={video} onVideoClick={onVideoClick} display={display} />)}
     </VideoCont>
   );
 };
@@ -17,4 +17,5 @@ const VideoCont = styled.ul`
   flex-wrap: wrap;
   list-style: none;
   padding-left: 0;
+  margin: 0;
 `

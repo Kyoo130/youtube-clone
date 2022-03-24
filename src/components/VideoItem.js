@@ -1,14 +1,17 @@
 import React from 'react';
 import styled from "styled-components";
 
-const VideoItem = ({video: {snippet}}) => {
+const VideoItem = ({video, display, onVideoClick}) => {
+  const {title, channelTitle, thumbnails} = video.snippet;
+  const displayType = display === 'list' ? '100%' : '50%';
+
   return (
-    <ListEl>
+    <ListEl onClick={() => onVideoClick(video)} displayType={displayType}>
       <DivEl>
-        <Thumbnail src={snippet.thumbnails.medium.url} alt=""/>
+        <Thumbnail src={thumbnails.medium.url} alt=""/>
         <MetaData>
-          <Title>{snippet.title}</Title>
-          <Channel>{snippet.channelTitle}</Channel>
+          <Title>{title}</Title>
+          <Channel>{channelTitle}</Channel>
         </MetaData>
       </DivEl>
     </ListEl>
@@ -19,6 +22,7 @@ export default VideoItem;
 
 const ListEl = styled.li`
   width: 50%;
+  //width: 100%;
   padding: 0.2em;
 `
 
