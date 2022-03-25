@@ -15,8 +15,6 @@ const Detail = ({video}) => {
   );
 };
 
-export default Detail;
-
 const SectionEl = styled.section`
   padding: 0.2em;
 `
@@ -24,3 +22,6 @@ const SectionEl = styled.section`
 const Description = styled.pre`
   white-space: pre-wrap;
 `
+
+export default Detail;
+

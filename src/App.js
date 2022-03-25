@@ -1,9 +1,9 @@
 import './App.css';
 import {useState, useEffect, useCallback} from "react";
 
-import {Header, VideoList} from "./components";
-import Detail from "./components/Detail";
-import styled from "styled-components";
+import {Header, VideoList, Detail} from "./components";
+import {FlexBox, SectionEl} from "./elements"
+
 
 function App({youtube}) {
   const [videos, setVideos] = useState([]);
@@ -30,31 +30,19 @@ function App({youtube}) {
     <div className="App">
       <Header onSearch={search}/>
 
-      <ContentSection>
+      <SectionEl is_flex="flex">
         {selectedVideo && (
-          <DetailCont>
+          <FlexBox flex="1 1 70%">
             <Detail video={selectedVideo}/>
-          </DetailCont>
+          </FlexBox>
         )}
 
-        <ListCont>
-          <VideoList videos={videos} onVideoClick={selectVideo} display={selectedVideo ? 'list' : 'grid'} />
-        </ListCont>
-      </ContentSection>
+        <FlexBox flex="1 1 30%">
+          <VideoList videos={videos} onVideoClick={selectVideo} selectedVideo={selectedVideo} />
+        </FlexBox>
+      </SectionEl>
     </div>
   );
 }
 
 export default App;
-
-const ContentSection = styled.section`
-  display: flex;
-`
-
-const DetailCont = styled.div`
-  flex: 1 1 70%;
-`
-
-const ListCont = styled.div`
-  flex: 1 1 30%;
-`

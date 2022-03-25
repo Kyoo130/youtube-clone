@@ -10,11 +10,11 @@ const Header = memo(({onSearch}) => {
   };
 
   const onClick = () => {
-
+    handelSearch();
   };
 
   const onKeyPress = (e) => {
-    if(e.key === 'Enter') {
+    if (e.key === 'Enter') {
       handelSearch();
     }
   };
@@ -26,7 +26,7 @@ const Header = memo(({onSearch}) => {
         <img src="/images/logo.png" alt="logo"/>
         <h1>Youtube</h1>
       </LogoCont>
-      <InputEl type="text" placeholder="Search..." ref={inputRef} onKeyPress={onKeyPress} />
+      <InputEl type="text" placeholder="검색" ref={inputRef} onKeyPress={onKeyPress}/>
       <BtnEl type="submit" onClick={onClick}>
         <BtnImg src="/images/search.png" alt="search"/>
       </BtnEl>
@@ -34,14 +34,13 @@ const Header = memo(({onSearch}) => {
   );
 })
 
-export default Header;
-
 const HeaderCont = styled.header`
   display: flex;
   height: 4rem;
   padding: 0.8em 1em;
   background-color: #181818;
   color: #fff;
+  border-bottom: 1px solid #fff;
 `
 
 const LogoCont = styled.div`
@@ -51,17 +50,25 @@ const LogoCont = styled.div`
 `
 
 const InputEl = styled.input`
-  flex-basis: 100%;
+  flex-basis: 50%;
   font-size: 1.2rem;
+  background-color: #0F0F0F;
+  border: 1px solid #242424;
+  padding-left: 1rem;
+  color: #fff;
   outline: 0;
 `
 
 const BtnEl = styled.button`
-  background-color: #bdbdbd;
+  width: 64px;
+  background-color: #252525;
+  border: none;
   outline: 0;
 `
 
 const BtnImg = styled.img`
-  height: 100%;
+  height: 85%;
   padding: 0.5em 0.2em;
 `
+
+export default Header;

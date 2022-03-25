@@ -1,16 +1,14 @@
 import React from 'react';
-import {VideoItem} from "./index";
 import styled from "styled-components";
+import {VideoItem} from "./index";
 
-const VideoList = ({videos, onVideoClick, display}) => {
+const VideoList = ({videos, onVideoClick, selectedVideo}) => {
   return (
     <VideoCont>
-      {videos.map(video => <VideoItem key={video.id} video={video} onVideoClick={onVideoClick} display={display} />)}
+      {videos.map(video => <VideoItem key={video.id} video={video} onVideoClick={onVideoClick} selectedVideo={selectedVideo} />)}
     </VideoCont>
   );
 };
-
-export default VideoList;
 
 const VideoCont = styled.ul`
   display: flex;
@@ -19,3 +17,6 @@ const VideoCont = styled.ul`
   padding-left: 0;
   margin: 0;
 `
+
+export default VideoList;
+

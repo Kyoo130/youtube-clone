@@ -1,12 +1,12 @@
 import React, {memo} from 'react';
 import styled from "styled-components";
 
-const VideoItem = memo(({video, display, onVideoClick}) => {
+const VideoItem = memo(({video, selectedVideo, onVideoClick}) => {
   const {title, channelTitle, thumbnails} = video.snippet;
-  const displayType = display === 'list' ? '100%' : '50%';
+  const display = selectedVideo ? '100%' : '50%';
 
   return (
-    <ListEl onClick={() => onVideoClick(video)} displayType={displayType}>
+    <ListCo onClick={() => onVideoClick(video)} display={display} >
       <DivEl>
         <Thumbnail src={thumbnails.medium.url} alt=""/>
         <MetaData>
@@ -14,15 +14,12 @@ const VideoItem = memo(({video, display, onVideoClick}) => {
           <Channel>{channelTitle}</Channel>
         </MetaData>
       </DivEl>
-    </ListEl>
+    </ListCo>
   );
 })
 
-export default VideoItem;
-
-const ListEl = styled.li`
-  width: 50%;
-  //width: 100%;
+const ListCo = styled.li`
+  width: ${props => props.display};
   padding: 0.2em;
 `
 
@@ -59,3 +56,6 @@ const Channel = styled.p`
   font-size: 0.6rem;
   margin: 0;
 `
+
+export default VideoItem;
+
