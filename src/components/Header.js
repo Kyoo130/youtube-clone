@@ -22,9 +22,9 @@ const Header = memo(({onSearch, onChecked, darkMode}) => {
 
   return (
     <HeaderCont>
-      <LogoCont>
+      <LogoCont href="/" darkMode={darkMode}>
         <img src="/images/logo.png" alt="logo"/>
-        <h1>Youtube</h1>
+        <h1>YouTube</h1>
       </LogoCont>
 
       <InputEl type="text" placeholder="검색" ref={inputRef} onKeyPress={onKeyPress} darkMode={darkMode}/>
@@ -43,10 +43,13 @@ const HeaderCont = styled.header`
   padding: 0.8em 1em;
 `
 
-const LogoCont = styled.div`
+const LogoCont = styled.a`
   display: flex;
   align-items: center;
   margin-right: 1em;
+  text-decoration: none;
+  color: ${(props => props.darkMode ? "#000" : "#fff")};
+  cursor: pointer;
 `
 
 const InputEl = styled.input`
