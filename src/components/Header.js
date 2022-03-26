@@ -2,7 +2,7 @@ import React, {memo, useRef} from 'react';
 import styled from "styled-components";
 import {Toggle} from "./index";
 
-const Header = memo(({onSearch, onChecked, darkMode}) => {
+const Header = memo(({onSearch, onChecked, setSelectedVideo, darkMode}) => {
   const inputRef = useRef();
 
   const handelSearch = () => {
@@ -22,7 +22,10 @@ const Header = memo(({onSearch, onChecked, darkMode}) => {
 
   return (
     <HeaderCont>
-      <LogoCont href="/" darkMode={darkMode}>
+      <LogoCont darkMode={darkMode} onClick={() => {
+        setSelectedVideo(null)
+        inputRef.current.value = ''
+      }}>
         <img src="/images/logo.png" alt="logo"/>
         <h1>YouTube</h1>
       </LogoCont>
@@ -43,12 +46,10 @@ const HeaderCont = styled.header`
   padding: 0.8em 1em;
 `
 
-const LogoCont = styled.a`
+const LogoCont = styled.div`
   display: flex;
   align-items: center;
   margin-right: 1em;
-  text-decoration: none;
-  color: ${(props => props.darkMode ? "#000" : "#fff")};
   cursor: pointer;
 `
 

@@ -37,7 +37,7 @@ function App({youtube}) {
   return (
     <div className="App">
       <GlobalStyle darkMode={darkMode}/>
-      <Header onSearch={search} onChecked={onChecked} darkMode={darkMode}/>
+      <Header onSearch={search} onChecked={onChecked} setSelectedVideo={setSelectedVideo} darkMode={darkMode}/>
       <SectionEl is_flex="flex" type={darkMode ? "white" : "dark"}>
         {selectedVideo && (
           <FlexBox flex="1 1 70%">
