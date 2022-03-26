@@ -2,10 +2,10 @@ import React from 'react';
 import styled from "styled-components";
 import {VideoItem} from "./index";
 
-const VideoList = ({videos, onVideoClick, selectedVideo}) => {
+const VideoList = ({videos, onVideoClick, selectedVideo, darkMode}) => {
   return (
     <VideoCont>
-      {videos.map(video => <VideoItem key={video.id} video={video} onVideoClick={onVideoClick} selectedVideo={selectedVideo} />)}
+      {videos.map(video => <VideoItem key={video.id} video={video} onVideoClick={onVideoClick} selectedVideo={selectedVideo} darkMode={darkMode} />)}
     </VideoCont>
   );
 };

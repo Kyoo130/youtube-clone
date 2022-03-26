@@ -1,7 +1,7 @@
-import React from 'react';
+import React, {memo} from 'react';
 import styled from "styled-components";
 
-const Toggle = ({onChecked}) => {
+const Toggle = memo(({onChecked}) => {
 
   const handleChecked = (e) => {
     onChecked(e.target.checked)
@@ -13,7 +13,7 @@ const Toggle = ({onChecked}) => {
       <Slider/>
     </Switch>
   );
-};
+})
 
 const Switch = styled.label`
   display: flex;

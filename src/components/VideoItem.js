@@ -1,13 +1,13 @@
 import React, {memo} from 'react';
 import styled from "styled-components";
 
-const VideoItem = memo(({video, selectedVideo, onVideoClick}) => {
+const VideoItem = memo(({video, selectedVideo, onVideoClick, darkMode}) => {
   const {title, channelTitle, thumbnails} = video.snippet;
   const display = selectedVideo ? '100%' : '50%';
 
   return (
     <ListCo onClick={() => onVideoClick(video)} display={display} >
-      <DivEl>
+      <DivEl darkMode={darkMode}>
         <Thumbnail src={thumbnails.medium.url} alt=""/>
         <MetaData>
           <Title>{title}</Title>
@@ -28,8 +28,8 @@ const DivEl = styled.div`
   height: 100%;
   display: flex;
   align-items: center;
-  border: 1px solid #bdbdbd;
-  box-shadow: 3px 3px 5px 0 rgba(191, 191, 191, 0.53);
+  border: 1px solid ${(props => props.darkMode ? "#bdbdbd" : "#242424")};
+  ${(props) => (props.darkMode ? 'box-shadow: 3px 3px 5px 0 rgba(191, 191, 191, 0.53)' : '')};
   cursor: pointer;
   transition: transform 250ms ease-in;
 

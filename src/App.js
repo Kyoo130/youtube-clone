@@ -1,4 +1,6 @@
 import './App.css';
+import {GlobalStyle} from "./util/GlobalStyle";
+
 import {useState, useEffect, useCallback} from "react";
 
 import {Header, VideoList, Detail} from "./components";
@@ -33,9 +35,9 @@ function App({youtube}) {
 
   return (
     <div className="App">
-
-      <Header onSearch={search} onChecked={onChecked} />
-      <SectionEl is_flex="flex">
+      <GlobalStyle darkMode={darkMode} />
+      <Header onSearch={search} onChecked={onChecked} darkMode={darkMode} />
+      <SectionEl is_flex="flex" type={darkMode ? "white" : "dark"}>
         {selectedVideo && (
           <FlexBox flex="1 1 70%">
             <Detail video={selectedVideo}/>
@@ -43,7 +45,7 @@ function App({youtube}) {
         )}
 
         <FlexBox flex="1 1 30%">
-          <VideoList videos={videos} onVideoClick={selectVideo} selectedVideo={selectedVideo} />
+          <VideoList videos={videos} onVideoClick={selectVideo} selectedVideo={selectedVideo} darkMode={darkMode} />
         </FlexBox>
       </SectionEl>
     </div>

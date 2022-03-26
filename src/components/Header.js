@@ -2,7 +2,7 @@ import React, {memo, useRef} from 'react';
 import styled from "styled-components";
 import {Toggle} from "./index";
 
-const Header = memo(({onSearch, onChecked}) => {
+const Header = memo(({onSearch, onChecked, darkMode}) => {
   const inputRef = useRef();
 
   const handelSearch = () => {
@@ -19,7 +19,6 @@ const Header = memo(({onSearch, onChecked}) => {
       handelSearch();
     }
   };
-  console.log("Header render")
 
   return (
     <HeaderCont>
@@ -28,8 +27,8 @@ const Header = memo(({onSearch, onChecked}) => {
         <h1>Youtube</h1>
       </LogoCont>
 
-      <InputEl type="text" placeholder="검색" ref={inputRef} onKeyPress={onKeyPress}/>
-      <BtnEl type="submit" onClick={onClick}>
+      <InputEl type="text" placeholder="검색" ref={inputRef} onKeyPress={onKeyPress} darkMode={darkMode}/>
+      <BtnEl type="submit" onClick={onClick} darkMode={darkMode}>
         <BtnImg src="/images/search.png" alt="search"/>
       </BtnEl>
 
@@ -42,9 +41,6 @@ const HeaderCont = styled.header`
   display: flex;
   height: 4rem;
   padding: 0.8em 1em;
-  background-color: #181818;
-  color: #fff;
-  border-bottom: 1px solid #fff;
 `
 
 const LogoCont = styled.div`
@@ -56,19 +52,20 @@ const LogoCont = styled.div`
 const InputEl = styled.input`
   flex-basis: 70%;
   font-size: 1.2rem;
-  background-color: #0F0F0F;
-  border: 1px solid #242424;
+  background-color: ${(props => props.darkMode ? "#fff" : "#0F0F0F")};
+  border: 1px solid ${(props => props.darkMode ? "#bdbdbd" : "#242424")};;
   padding-left: 1rem;
-  color: #fff;
+  color: ${(props => props.darkMode ? "#000" : "#fff")};
   outline: 0;
 `
 
 const BtnEl = styled.button`
   width: 64px;
   margin-right: auto;
-  background-color: #252525;
+  background-color: ${(props => props.darkMode ? "#bdbdbd" : "#242424")};
   border: none;
   outline: 0;
+  cursor: pointer;
 `
 
 const BtnImg = styled.img`
