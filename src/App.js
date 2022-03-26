@@ -3,7 +3,7 @@ import {GlobalStyle} from "./util/GlobalStyle";
 
 import {useState, useEffect, useCallback} from "react";
 
-import {Header, VideoList, Detail} from "./components";
+import {Header, VideoList, Detail, NotFound} from "./components";
 import {FlexBox, SectionEl} from "./elements"
 
 
@@ -21,11 +21,11 @@ function App({youtube}) {
   }
 
   const search = useCallback(query => {
-      setSelectedVideo(null);
-      youtube
-        .search(query)
-        .then(videos => setVideos(videos))
-    }, [youtube]);
+    setSelectedVideo(null);
+    youtube
+      .search(query)
+      .then(videos => setVideos(videos))
+  }, [youtube]);
 
   useEffect(() => {
     youtube
@@ -33,10 +33,11 @@ function App({youtube}) {
       .then(videos => setVideos(videos))
   }, [youtube])
 
+
   return (
     <div className="App">
-      <GlobalStyle darkMode={darkMode} />
-      <Header onSearch={search} onChecked={onChecked} darkMode={darkMode} />
+      <GlobalStyle darkMode={darkMode}/>
+      <Header onSearch={search} onChecked={onChecked} darkMode={darkMode}/>
       <SectionEl is_flex="flex" type={darkMode ? "white" : "dark"}>
         {selectedVideo && (
           <FlexBox flex="1 1 70%">
@@ -44,9 +45,13 @@ function App({youtube}) {
           </FlexBox>
         )}
 
-        <FlexBox flex="1 1 30%">
-          <VideoList videos={videos} onVideoClick={selectVideo} selectedVideo={selectedVideo} darkMode={darkMode} />
-        </FlexBox>
+        {
+          videos.length !== 0
+            ? (<FlexBox flex="1 1 30%">
+              <VideoList videos={videos} onVideoClick={selectVideo} selectedVideo={selectedVideo} darkMode={darkMode}/>
+            </FlexBox>)
+            : <NotFound/>
+        }
       </SectionEl>
     </div>
   );
