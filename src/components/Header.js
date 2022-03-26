@@ -1,7 +1,8 @@
 import React, {memo, useRef} from 'react';
 import styled from "styled-components";
+import {Toggle} from "./index";
 
-const Header = memo(({onSearch}) => {
+const Header = memo(({onSearch, onChecked}) => {
   const inputRef = useRef();
 
   const handelSearch = () => {
@@ -26,10 +27,13 @@ const Header = memo(({onSearch}) => {
         <img src="/images/logo.png" alt="logo"/>
         <h1>Youtube</h1>
       </LogoCont>
+
       <InputEl type="text" placeholder="검색" ref={inputRef} onKeyPress={onKeyPress}/>
       <BtnEl type="submit" onClick={onClick}>
         <BtnImg src="/images/search.png" alt="search"/>
       </BtnEl>
+
+      <Toggle onChecked={onChecked} />
     </HeaderCont>
   );
 })
@@ -50,7 +54,7 @@ const LogoCont = styled.div`
 `
 
 const InputEl = styled.input`
-  flex-basis: 50%;
+  flex-basis: 70%;
   font-size: 1.2rem;
   background-color: #0F0F0F;
   border: 1px solid #242424;
@@ -61,6 +65,7 @@ const InputEl = styled.input`
 
 const BtnEl = styled.button`
   width: 64px;
+  margin-right: auto;
   background-color: #252525;
   border: none;
   outline: 0;

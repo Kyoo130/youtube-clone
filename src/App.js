@@ -8,6 +8,11 @@ import {FlexBox, SectionEl} from "./elements"
 function App({youtube}) {
   const [videos, setVideos] = useState([]);
   const [selectedVideo, setSelectedVideo] = useState(null);
+  const [darkMode, setDarkMode] = useState(false);
+
+  const onChecked = (mode) => {
+    setDarkMode(mode)
+  }
 
   const selectVideo = (video) => {
     setSelectedVideo(video);
@@ -28,8 +33,8 @@ function App({youtube}) {
 
   return (
     <div className="App">
-      <Header onSearch={search}/>
 
+      <Header onSearch={search} onChecked={onChecked} />
       <SectionEl is_flex="flex">
         {selectedVideo && (
           <FlexBox flex="1 1 70%">
