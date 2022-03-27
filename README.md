@@ -57,7 +57,7 @@
 │   └── index.js
 ├── elements
 │   ├── FlexBox.js
-│   ├── SectionEl.js![2022-03-27 21 53 48](https://user-images.githubusercontent.com/77729264/160283915-4ef97da6-a038-4342-8fa1-a3619fd37b51.gif)
+│   ├── SectionEl.js
 
 │   └── index.js
 ├── service
