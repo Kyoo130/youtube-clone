@@ -1,70 +1,71 @@
-# Getting Started with Create React App
+# YouTube Clone 유튜브 동영상 검색 서비스
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### 📝 개요
 
-## Available Scripts
++ YouTube API를 이용하여 만든 유튜브 동영상 검색 클론 프로젝트 입니다.
++ 원하는 YouTube 동영상을 검색하고, 재생할 수 있는 기능을 구현하였습니다.
++ 기본 테마는 Dark 스타일이며, 상단 토글 버튼을 통해 스타일을 변경할 수 있습니다.
++ 검색한 제목의 동영상이 없을 시 404페이지가 노출되도록 기능을 구현하였습니다.
 
-In the project directory, you can run:
+### 💻 사용 기술
 
-### `yarn start`
++ JavaScript
++ React
++ Styled-components
++ Axios
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### 🏚 개발 환경
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
++ OS : Mac
++ Front-End : React
++ IDE : VS Code, IntelliJ
++ Platform : PC Web
++ Test Browser : Chrome v.99.0.4844.84
++ Test Device : iPhone 13 Pro (모바일 버전 미구현)
 
-### `yarn test`
+### 🔗 배포 URL
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
++ https://boisterous-paletas-1622d0.netlify.app
 
-### `yarn build`
+### 📂 프로젝트 구조
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```bash
+🗂 src
+├── components
+│   ├── Detail.js
+│   ├── Header.js
+│   ├── NotFound.js
+│   ├── Toggle.js
+│   ├── VideoItem.js
+│   ├── VideoList.js
+│   └── index.js
+├── elements
+│   ├── FlexBox.js
+│   ├── SectionEl.js
+│   └── index.js
+├── service
+│   └── youtube.js
+├── util
+│   └── GlobalStyle.js
+├── index.css
+├── index.js
+├── App.css
+└── App.js
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### 🛠 세부 기능
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+| Video List                                         | Video Search                                       |
+|----------------------------------------------------|----------------------------------------------------|
+| ![](../../../../Downloads/2022-03-27 21.49.47.gif) | ![](../../../../Downloads/2022-03-27 21.50.24.gif) |
 
-### `yarn eject`
+| Dark Mode                                          | Not Found                                          |
+|----------------------------------------------------|----------------------------------------------------|
+| ![](../../../../Downloads/2022-03-27 21.50.24.gif) | ![](../../../../Downloads/2022-03-27 21.53.48.gif) |
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### 💬 상세 내용
+- API 호출을 통해 Youtube 동영상 검색 기능 구현
+- 토글 버튼 클릭 시 테마 스타일 변경 기능 구현 (기본값: DarkMode)
+- 검색된 동영상이 없을 시 404 페이지 노출 기능 구현
+- 모바일 환경에서도 대응이 가능한 반응형 웹 (구현 예정)
