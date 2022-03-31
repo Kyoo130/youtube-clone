@@ -16,6 +16,10 @@ const VideoCont = styled.ul`
   list-style: none;
   padding-left: 0;
   margin: 0;
+
+  @media only screen and (max-width: 768px) {
+    flex-direction: column;
+  }
 `
 
 export default VideoList;

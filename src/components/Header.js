@@ -29,13 +29,11 @@ const Header = memo(({onSearch, onChecked, setSelectedVideo, darkMode}) => {
         <img src="/images/logo.png" alt="logo"/>
         <h1>YouTube</h1>
       </LogoCont>
-
       <InputEl type="text" placeholder="검색" ref={inputRef} onKeyPress={onKeyPress} darkMode={darkMode}/>
       <BtnEl type="submit" onClick={onClick} darkMode={darkMode}>
         <BtnImg src="/images/search.png" alt="search"/>
       </BtnEl>
-
-      <Toggle onChecked={onChecked} />
+      <Toggle onChecked={onChecked}/>
     </HeaderCont>
   );
 })
@@ -51,6 +49,10 @@ const LogoCont = styled.div`
   align-items: center;
   margin-right: 1em;
   cursor: pointer;
+
+  @media only screen and (max-width: 768px) {
+    display: none;
+  }
 `
 
 const InputEl = styled.input`
@@ -64,7 +66,7 @@ const InputEl = styled.input`
 `
 
 const BtnEl = styled.button`
-  width: 64px;
+  width: 4em;
   margin-right: auto;
   background-color: ${(props => props.darkMode ? "#bdbdbd" : "#242424")};
   border: none;

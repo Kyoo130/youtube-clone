@@ -38,6 +38,10 @@ SectionEl.defaultProps = {
 
 const SectionCont = styled.section`
   display: flex;
+  @media only screen and (max-width: 768px) {
+  flex-direction: column;
+}
+
   ${typeStyles}
 `
 

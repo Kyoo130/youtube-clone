@@ -6,9 +6,9 @@ const VideoItem = memo(({video, selectedVideo, onVideoClick, darkMode}) => {
   const display = selectedVideo ? '100%' : '50%';
 
   return (
-    <ListCo onClick={() => onVideoClick(video)} display={display} >
+    <ListCo onClick={() => onVideoClick(video)} display={display}>
       <DivEl darkMode={darkMode}>
-        <Thumbnail src={thumbnails.medium.url} alt=""/>
+        <Thumbnail src={thumbnails.medium.url} alt={title}/>
         <MetaData>
           <Title>{title}</Title>
           <Channel>{channelTitle}</Channel>
@@ -21,6 +21,10 @@ const VideoItem = memo(({video, selectedVideo, onVideoClick, darkMode}) => {
 const ListCo = styled.li`
   width: ${props => props.display};
   padding: 0.2em;
+
+  @media only screen and (max-width: 768px) {
+    width: 100%;
+  }
 `
 
 const DivEl = styled.div`
